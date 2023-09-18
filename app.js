@@ -12,7 +12,8 @@ const auth = require('./middlewares/auth');
 const defaultErrorNotFound = require('./middlewares/defaultErrorNotFound');
 const rateLimit = require('./middlewares/limiter');
 
-const { PORT, DATA_BASE } = process.env;
+const { PORT, DATA_BASE } = require('./utils/config');
+
 const app = express();
 
 app.use(express.json());

@@ -4,7 +4,8 @@ const { ErrorBadRequest, ErrorNotFound, ErrorForbidden } = require('../errors/er
 const errorMessage = require('../utils/constants');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({})
+  const userId = req.user._id;
+  Movie.find({ owner: userId })
     .then((movie) => res.send(movie))
     .catch((error) => next(error));
 };
