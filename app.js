@@ -22,11 +22,11 @@ mongoose.connect(DATA_BASE, {
   useNewUrlParser: true,
 });
 
+app.use(cors({ origin: true, credentials: true }));
+
 app.use(helmet());
 app.use(requestLogger);
 app.use(rateLimit);
-
-app.use(cors({ origin: true, credentials: true }));
 
 app.use('/', router);
 app.use(errorLogger);
